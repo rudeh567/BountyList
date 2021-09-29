@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BountyViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class BountyViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     // MVVM
     
@@ -46,27 +46,42 @@ class BountyViewController: UIViewController, UITableViewDataSource, UITableView
         // Do any additional setup after loading the view.
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numOfBountyInfoList
-    }
+    // UICollectionViewDataSource
+    // 몇개를 보여줄까요?
+    // 셀은 어떻게 표현할까요?
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ListCell else {
-            return UITableViewCell()
-        }
-
-        let bountyInfo = viewModel.bountyInfo(at: indexPath.row)
-        cell.update(info: bountyInfo)
     
-        return cell
-    }
     
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("--> \(indexPath.row)")
-        performSegue(withIdentifier: "showDetail", sender: indexPath.row)
-    }
+    // UICollectionViewDelegate
+    // 셀이 클릭되었을때 어쩔까요?
+    
+    
+    
+    // UICollectionViewDelegateFlowLayout
+    // cell size를 계산할거다 (목표: 다양한 디바이스에서 일관적인 디자인을 보여주기 위헤)
+    
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return viewModel.numOfBountyInfoList
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//
+//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ListCell else {
+//            return UITableViewCell()
+//        }
+//
+//        let bountyInfo = viewModel.bountyInfo(at: indexPath.row)
+//        cell.update(info: bountyInfo)
+//
+//        return cell
+//    }
+//
+//
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        print("--> \(indexPath.row)")
+//        performSegue(withIdentifier: "showDetail", sender: indexPath.row)
+//    }
+    
 }
 
 class ListCell: UITableViewCell {
