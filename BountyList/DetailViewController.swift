@@ -29,7 +29,6 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var bountyLable: UILabel!
     @IBOutlet weak var nameLabelCenterX: NSLayoutConstraint!
-    
     @IBOutlet weak var bountyLabelCenterX: NSLayoutConstraint!
     
     let viewModel = DetailViewModel()
@@ -43,7 +42,6 @@ class DetailViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         showAnimation()
-        
     }
     
     private func prepareAnimation() {
@@ -52,7 +50,7 @@ class DetailViewController: UIViewController {
     
         nameLabel.transform = CGAffineTransform(translationX: view.bounds.width, y: 0).scaledBy(x: 3, y: 3).rotated(by: 180)
         bountyLable.transform = CGAffineTransform(translationX: view.bounds.width, y: 0).scaledBy(x: 3, y: 3).rotated(by: 180)
-        
+
         nameLabel.alpha = 0
         bountyLable.alpha = 0
     }
@@ -70,13 +68,12 @@ class DetailViewController: UIViewController {
             self.nameLabel.alpha = 1
         }, completion: nil)
         
-        UIView.animate(withDuration: 1, delay: 0.2, usingSpringWithDamping: 0.6, initialSpringVelocity: 2, options: .allowUserInteraction, animations: { 
+        UIView.animate(withDuration: 1, delay: 0.2, usingSpringWithDamping: 0.6, initialSpringVelocity: 2, options: .allowUserInteraction, animations: {
             self.bountyLable.transform = CGAffineTransform.identity
             self.bountyLable.alpha = 1
         }, completion: nil)
         
         UIView.transition(with: imgView, duration: 0.3, options: .transitionFlipFromLeft, animations: nil, completion: nil)
-        
     }
     
     func updateUI() {
