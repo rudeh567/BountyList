@@ -36,7 +36,6 @@ class BountyViewController: UIViewController, UICollectionViewDataSource, UIColl
                 let bountyInfo = viewModel.bountyInfo(at: index)
                 vc?.viewModel.update(model: bountyInfo) 
             }
-            
         }
     }
     
@@ -59,13 +58,11 @@ class BountyViewController: UIViewController, UICollectionViewDataSource, UIColl
                 GridCell else {
                     return UICollectionViewCell()
                 }
-        
         let bountyInfo = viewModel.bountyInfo(at: indexPath.item)
                 cell.update(info: bountyInfo)
         cell.update(info: bountyInfo)
         return cell
     }
-    
     
     // UICollectionViewDelegate
     // 셀이 클릭되었을때 어쩔까요?
@@ -74,48 +71,18 @@ class BountyViewController: UIViewController, UICollectionViewDataSource, UIColl
         performSegue(withIdentifier: "showDetail", sender: indexPath.item)
     }
     
-    
     // UICollectionViewDelegateFlowLayout
     // cell size를 계산할거다 (목표: 다양한 디바이스에서 일관적인 디자인을 보여주기 위헤)
     
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return viewModel.numOfBountyInfoList
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ListCell else {
-//            return UITableViewCell()
-//        }
-//
-//        let bountyInfo = viewModel.bountyInfo(at: indexPath.row)
-//        cell.update(info: bountyInfo)
-//
-//        return cell
-//    }
-//
-//
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print("--> \(indexPath.row)")
-//        performSegue(withIdentifier: "showDetail", sender: indexPath.row)
-//    }
-    
-}
-
-class ListCell: UITableViewCell {
-    @IBOutlet weak var imgView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var bountyLable: UILabel!
-    
-    func update(info: BountyInfo) {
-        imgView.image = info.image
-        nameLabel.text = info.name
-        bountyLable.text = "\(info.bounty)"
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let itemSpacing: CGFloat = 10
+        let textAreaHeight: CGFloat = 65
+        
+        let width: CGFloat = (collectionView.bounds.width - itemSpacing)/2
+        let height: CGFloat = width * 10/7 + textAreaHeight
+        return CGSize(width: width, height: height)
     }
-    
 }
-
-
 
 class BountyViewModel {
     let bountyInfoList: [BountyInfo] = [
