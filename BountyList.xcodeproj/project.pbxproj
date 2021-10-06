@@ -63,11 +63,11 @@
 				F081BE5B2701A13E00EFFF10 /* AppDelegate.swift */,
 				F081BE5D2701A13E00EFFF10 /* SceneDelegate.swift */,
 				F081BE6F2701A16C00EFFF10 /* BountyViewController.swift */,
+				F081BE712701BBC600EFFF10 /* DetailViewController.swift */,
 				F081BE612701A13E00EFFF10 /* Main.storyboard */,
 				F081BE642701A13F00EFFF10 /* Assets.xcassets */,
 				F081BE662701A13F00EFFF10 /* LaunchScreen.storyboard */,
 				F081BE692701A13F00EFFF10 /* Info.plist */,
-				F081BE712701BBC600EFFF10 /* DetailViewController.swift */,
 				F0E3A92827041EBF00C67D44 /* BountyInfo.swift */,
 			);
 			path = BountyList;
